@@ -39,6 +39,36 @@
     //     document.getElementById("fahrenheit").value = tempfahrenheit;
     // }
 
+    // Show
+    function showCelcius() {
+        document.getElementById("celciusContent").style.display = "block";
+        document.getElementById("fahrenheitContent").style.display = "none";
+        document.getElementById("kelvinContent").style.display = "none";
+        document.getElementById("reamurContent").style.display = "none";
+    }
+
+    function showFahrenheit() {
+        document.getElementById("celciusContent").style.display = "none";
+        document.getElementById("fahrenheitContent").style.display = "block";
+        document.getElementById("kelvinContent").style.display = "none";
+        document.getElementById("reamurContent").style.display = "none";
+    }
+
+    function showKelvin() {
+        document.getElementById("celciusContent").style.display = "none";
+        document.getElementById("fahrenheitContent").style.display = "none";
+        document.getElementById("kelvinContent").style.display = "block";
+        document.getElementById("reamurContent").style.display = "none";
+    }
+
+    function showReamur() {
+        document.getElementById("celciusContent").style.display = "none";
+        document.getElementById("fahrenheitContent").style.display = "none";
+        document.getElementById("kelvinContent").style.display = "none";
+        document.getElementById("reamurContent").style.display = "block";
+    }
+
+    // Convert
     function convertCelcius() {
         var tempCelcius = parseFloat(document.getElementById("celcius").value);
         var tempFahrenheit = (tempCelcius * (9 / 5)) + 32;
@@ -100,9 +130,20 @@
     <div class="container">
         <h1 class="mt-3 text-center font-weight-bold">AndraTemp</h1>
         <p style="margin-top: -8px;">Conversion Temperature</p>
-        <img src="img/polarbeartemperature.png" alt="" height="180" class="text-center" style="margin-top: -30px; margin-bottom: -20px;">
-        <div class="row">
-            <div class="col-sm-6 mt-3">
+        <img src="img/polarbeartemperature.png" alt="" height="180" class="text-center"
+            style="margin-top: -30px; margin-bottom: -20px;">
+
+        <!-- Navigasi -->
+        <div class="text-center mt-3 d-flex justify-content-center gap-3 flex-wrap">
+            <button class="btn btn-primary mx-2 mt-2" onclick="showCelcius()">Celcius</button>
+            <button class="btn btn-primary mx-2 mt-2" onclick="showFahrenheit()">Fahrenheit</button>
+            <button class="btn btn-primary mx-2 mt-2" onclick="showKelvin()">Kelvin</button>
+            <button class="btn btn-primary mx-2 mt-2" onclick="showReamur()">Reamur</button>
+        </div>
+
+        <div id="contentContainer" class="mt-5">
+            <!-- Celcius -->
+            <div id="celciusContent">
                 <div class="card">
                     <div class="card-header ">
                         <h5 class="font-weight-bold">Temperatur Celcius</h5>
@@ -115,20 +156,25 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 mt-3">
+
+            <!-- Fahrenheit -->
+            <div id="fahrenheitContent" style="display:none;">
                 <div class="card">
                     <div class="card-header font-weight-bold">
                         <h5 class="font-weight-bold">Temperatur Fahrenheit</h5>
                     </div>
                     <div class="card-body">
                         <h6 class="card-title">Silahkan input suhu dalam Fahrenheit</h6>
-                        <input type="text" class="formcontrol" id="fahrenheit" placeholder="Input Temperature Fahrenheit">
+                        <input type="text" class="formcontrol" id="fahrenheit"
+                            placeholder="Input Temperature Fahrenheit">
                         <button type="button" class="btn btn-primary" onclick="convertFahrenheit()">Convert All</button>
                         <br>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 mt-3">
+
+            <!-- Kelvin -->
+            <div id="kelvinContent" style="display:none;">
                 <div class="card">
                     <div class="card-header font-weight-bold">
                         <h5 class="font-weight-bold">Temperatur Kelvin</h5>
@@ -141,7 +187,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 mt-3">
+
+            <!-- Reamur -->
+            <div id="reamurContent" style="display:none;">
                 <div class="card">
                     <div class="card-header font-weight-bold">
                         <h5 class="font-weight-bold">Temperatur Reamur</h5>
